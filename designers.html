@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarmeer Design | 已入驻设计师名册</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --apple-bg: #ffffff;
+            --apple-secondary: #fafaf9;
+            --apple-text: #1d1d1f;
+            --tarmeer-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--apple-bg);
+            color: var(--apple-text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .pattern-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l15 30-15 30-15-30z' fill='%23C5A059' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        .section-title { font-family: 'Noto Serif SC', serif; }
+
+        .apple-card {
+            background: var(--apple-secondary);
+            border-radius: 28px;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(197, 160, 89, 0.14);
+        }
+
+        .apple-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(197, 160, 89, 0.18);
+            border-color: var(--tarmeer-gold);
+        }
+
+        .avatar-ring {
+            box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.18);
+        }
+
+        .text-gold { color: var(--tarmeer-gold); }
+
+        html { scroll-behavior: smooth; }
+
+        /* 语言切换 */
+        [data-lang="en"] { display: none; }
+        .lang-active-en [data-lang="en"] { display: inline; }
+        .lang-active-en [data-lang="cn"] { display: none; }
+        .lang-active-cn [data-lang="cn"] { display: inline; }
+        .lang-active-cn [data-lang="en"] { display: none; }
+    </style>
+</head>
+<body class="pattern-overlay lang-active-cn">
+
+    <!-- 顶部导航 -->
+    <nav class="glass-nav fixed top-0 w-full z-50 border-b border-black/[0.03]">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="flex items-center gap-2">
+                    <span class="text-xl md:text-2xl font-bold tracking-tighter text-black uppercase">Tarmeer <span class="text-gold">Design</span></span>
+                </a>
+                <span class="hidden md:inline-block text-[11px] uppercase tracking-[0.2em] text-gray-400 ml-4">
+                    <span data-lang="cn">已入驻设计师名册</span>
+                    <span data-lang="en">Designer Roster</span>
+                </span>
+            </div>
+            <div class="flex items-center gap-6 text-[11px] font-bold text-gray-500 uppercase tracking-[0.2em]">
+                <a href="index.html" class="hover:text-gold">
+                    <span data-lang="cn">返回招募页</span><span data-lang="en">BACK TO APPLY</span>
+                </a>
+                <button onclick="toggleLanguage()" class="text-[10px] font-black border border-gold/30 px-3 py-1 rounded-full text-gold hover:bg-gold hover:text-white transition w-10 h-10 flex items-center justify-center">
+                    <span id="langBtnText">EN</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 md:pt-40 pb-16 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-gold font-bold text-xs md:text-sm tracking-[0.3em] uppercase mb-6">
+                <span data-lang="cn">REAL DESIGNERS · REAL PROJECTS</span>
+                <span data-lang="en">REAL DESIGNERS · REAL PROJECTS</span>
+            </p>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 section-title">
+                <span data-lang="cn">他们，已经和 Tarmeer 一起在中东做设计。</span>
+                <span data-lang="en">Designers Building the Middle East with Tarmeer.</span>
+            </h1>
+            <p class="text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                <span data-lang="cn">以下为示意展示内容，可根据实际入驻设计师信息替换。我们希望未来，你的名字也出现在这里。</span>
+                <span data-lang="en">Sample showcase only. Replace with real designer data as you grow the roster — and we hope to see your name here soon.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Designers Grid -->
+    <section class="pb-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Designer 1 -->
+                <a href="designer.html?id=leen" class="block group">
+                <article class="apple-card p-8 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" alt="designer avatar" class="w-14 h-14 rounded-full object-cover avatar-ring">
+                            <div class="text-left">
+                                <h2 class="font-semibold text-lg">
+                                    <span data-lang="cn">Leen Al Hassan</span>
+                                    <span data-lang="en">Leen Al Hassan</span>
+                                </h2>
+                                <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mt-1">
+                                    <span data-lang="cn">认证设计师 · 迪拜</span>
+                                    <span data-lang="en">Certified Designer · Dubai</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 text-left leading-relaxed">
+                            <span data-lang="cn">专注高端公寓与年轻家庭住宅设计，擅长将中东传统纹样与极简家居结合，打造具有光感与层次感的城市生活空间。</span>
+                            <span data-lang="en">Specializes in high-end apartments and young family homes, blending regional patterns with minimal interiors for light-filled urban spaces.</span>
+                        </p>
+                        <ul class="text-xs text-gray-500 space-y-1 text-left mb-4">
+                            <li><i class="fa-solid fa-location-dot w-4"></i> Dubai Marina · Downtown</li>
+                            <li><i class="fa-solid fa-language w-4"></i> Arabic / English</li>
+                            <li><i class="fa-solid fa-layer-group w-4"></i> Residential · Serviced Apartments</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 pt-4 border-t border-white/60 mt-4">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-gold">
+                            <span data-lang="cn">代表项目：Marina Skyline Loft</span>
+                            <span data-lang="en">Key Project: Marina Skyline Loft</span>
+                        </span>
+                        <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-gold group-hover:underline inline-flex items-center gap-2">
+                            <span data-lang="cn">查看个人主页</span><span data-lang="en">View Profile</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </div>
+                </article>
+                </a>
+
+                <!-- Designer 2 -->
+                <a href="designer.html?id=chen" class="block group">
+                <article class="apple-card p-8 flex flex-col justify-between h-full">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?q=80&w=800&auto=format&fit=crop" alt="designer avatar" class="w-14 h-14 rounded-full object-cover avatar-ring">
+                            <div class="text-left">
+                                <h2 class="font-semibold text-lg">
+                                    <span data-lang="cn">Chen Yuhan</span>
+                                    <span data-lang="en">Chen Yuhan</span>
+                                </h2>
+                                <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mt-1">
+                                    <span data-lang="cn">签约设计师 · 阿布扎比</span>
+                                    <span data-lang="en">Contracted Designer · Abu Dhabi</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 text-left leading-relaxed">
+                            <span data-lang="cn">拥有多年的酒店与高端别墅项目经验，擅长用克制的线条与大面积石材，呈现兼具仪式感与居住舒适度的空间。</span>
+                            <span data-lang="en">Experienced in hospitality and luxury villas, known for calm lines and stone textures that balance ceremony with everyday comfort.</span>
+                        </p>
+                        <ul class="text-xs text-gray-500 space-y-1 text-left mb-4">
+                            <li><i class="fa-solid fa-location-dot w-4"></i> Saadiyat Island · Yas</li>
+                            <li><i class="fa-solid fa-language w-4"></i> Chinese / English</li>
+                            <li><i class="fa-solid fa-layer-group w-4"></i> Villas · Boutique Hotels</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 pt-4 border-t border-white/60 mt-4">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-gold">
+                            <span data-lang="cn">代表项目：Saadiyat Art Villa</span>
+                            <span data-lang="en">Key Project: Saadiyat Art Villa</span>
+                        </span>
+                        <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-gold group-hover:underline inline-flex items-center gap-2">
+                            <span data-lang="cn">查看个人主页</span><span data-lang="en">View Profile</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </div>
+                </article>
+                </a>
+
+                <!-- Designer 3 -->
+                <a href="designer.html?id=omar" class="block group">
+                    <article class="apple-card p-8 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=800&auto=format&fit=crop" alt="designer avatar" class="w-14 h-14 rounded-full object-cover avatar-ring">
+                                <div class="text-left">
+                                    <h2 class="font-semibold text-lg">
+                                        <span data-lang="cn">Omar Al Ghali</span>
+                                        <span data-lang="en">Omar Al Ghali</span>
+                                    </h2>
+                                    <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mt-1">
+                                        <span data-lang="cn">注册设计师 · 利雅得</span>
+                                        <span data-lang="en">Registered Designer · Riyadh</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4 text-left leading-relaxed">
+                                <span data-lang="cn">从商业视觉出发做空间，擅长咖啡馆与小型零售空间设计，为品牌在社交媒体创造高记忆度场景。</span>
+                                <span data-lang="en">Approaches space from a branding angle, designing cafes and compact retail that photograph beautifully for social media.</span>
+                            </p>
+                            <ul class="text-xs text-gray-500 space-y-1 text-left mb-4">
+                                <li><i class="fa-solid fa-location-dot w-4"></i> Riyadh Central</li>
+                                <li><i class="fa-solid fa-language w-4"></i> Arabic / English</li>
+                                <li><i class="fa-solid fa-layer-group w-4"></i> Cafés · Retail</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 pt-4 border-t border-white/60 mt-4">
+                            <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-gold">
+                                <span data-lang="cn">代表项目：Sandline Coffee Lab</span>
+                                <span data-lang="en">Key Project: Sandline Coffee Lab</span>
+                            </span>
+                            <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-gold group-hover:underline inline-flex items-center gap-2">
+                                <span data-lang="cn">查看个人主页</span><span data-lang="en">View Profile</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </span>
+                        </div>
+                    </article>
+                </a>
+
+            </div>
+
+            <!-- Call to action back to apply -->
+            <div class="mt-20 text-center">
+                <p class="text-sm uppercase tracking-[0.3em] text-gray-400 mb-4">
+                    <span data-lang="cn">NEXT DESIGNER · COULD BE YOU</span>
+                    <span data-lang="en">NEXT DESIGNER · COULD BE YOU</span>
+                </p>
+                <a href="index.html#join" class="inline-flex items-center justify-center px-10 py-3 rounded-full bg-black text-white text-xs font-bold tracking-[0.3em] uppercase hover:scale-105 transition">
+                    <span data-lang="cn">返回招募页 · 提交申请</span>
+                    <span data-lang="en">BACK TO APPLY PAGE</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer 简版 -->
+    <footer class="py-10 border-t border-black/[0.03] bg-white/70">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-[10px] text-gray-400 uppercase tracking-[0.25em] text-center md:text-left">
+                © 2026 Tarmeer Design · Dubai, UAE.
+            </p>
+            <p class="text-[10px] text-gray-400 text-center md:text-right">
+                <span data-lang="cn">主站：</span><span data-lang="en">Main site:</span> WWW.TARMEER.COM
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        let currentLang = 'cn';
+        function toggleLanguage() {
+            const body = document.body;
+            const btnText = document.getElementById('langBtnText');
+            if (currentLang === 'cn') {
+                body.classList.replace('lang-active-cn', 'lang-active-en');
+                btnText.innerText = 'CN';
+                currentLang = 'en';
+            } else {
+                body.classList.replace('lang-active-en', 'lang-active-cn');
+                btnText.innerText = 'EN';
+                currentLang = 'cn';
+            }
+        }
+    </script>
+</body>
+</html>
+

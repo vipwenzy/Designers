@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarmeer Design | 中东设计师招募计划 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --apple-bg: #ffffff;
+            --apple-secondary: #fafaf9;
+            --apple-text: #1d1d1f;
+            --tarmeer-gold: #C5A059;
+            --tarmeer-green: #00d166;
+        }
+        
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--apple-bg); 
+            color: var(--apple-text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .pattern-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l15 30-15 30-15-30z' fill='%23C5A059' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .glass-nav { 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: saturate(180%) blur(20px); 
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        .arch-container { border-radius: 1000px 1000px 24px 24px; }
+
+        .apple-card {
+            background: var(--apple-secondary);
+            border-radius: 28px;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(197, 160, 89, 0.1);
+        }
+
+        .apple-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(197, 160, 89, 0.1);
+            border-color: var(--tarmeer-gold);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+            color: white;
+            border-radius: 980px;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+        }
+
+        .btn-black {
+            background-color: var(--apple-text);
+            color: white;
+            border-radius: 980px;
+        }
+
+        .text-gold { color: var(--tarmeer-gold); }
+        .bg-sand { background-color: var(--apple-secondary); }
+
+        html { scroll-behavior: smooth; }
+
+        .section-title { font-family: 'Noto Serif SC', serif; }
+
+        /* 语言切换逻辑样式 */
+        [data-lang="en"] { display: none; }
+        .lang-active-en [data-lang="en"] { display: block; }
+        .lang-active-en [data-lang="cn"] { display: none; }
+        .lang-active-cn [data-lang="cn"] { display: block; }
+        .lang-active-cn [data-lang="en"] { display: none; }
+
+        .image-zoom { transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .arch-container:hover .image-zoom { transform: scale(1.08); }
+    </style>
+</head>
+<body class="pattern-overlay lang-active-cn">
+
+    <!-- 导航栏 -->
+    <nav class="glass-nav fixed top-0 w-full z-50 border-b border-black/[0.03]">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-xl md:text-2xl font-bold tracking-tighter text-black uppercase">Tarmeer <span class="text-gold">Design</span></span>
+            </div>
+            
+            <div class="hidden md:flex gap-8 text-[11px] font-bold text-gray-500 uppercase tracking-[0.2em]">
+                <a href="#about" class="hover:text-gold transition text-balance">
+                    <span data-lang="cn">加入优势</span><span data-lang="en">WHY JOIN</span>
+                </a>
+                <a href="#models" class="hover:text-gold transition text-balance">
+                    <span data-lang="cn">合伙模式</span><span data-lang="en">PARTNERSHIP</span>
+                </a>
+                <a href="designers.html" class="hover:text-gold transition text-balance">
+                    <span data-lang="cn">已入驻设计师</span><span data-lang="en">DESIGNERS</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button onclick="toggleLanguage()" class="text-[10px] font-black border border-gold/30 px-3 py-1 rounded-full text-gold hover:bg-gold hover:text-white transition w-10 h-10 flex items-center justify-center">
+                    <span id="langBtnText">EN</span>
+                </button>
+                <a href="#join" class="btn-gold px-5 py-2 text-[10px] font-bold uppercase tracking-widest hidden sm:block">
+                    <span data-lang="cn">立即入驻</span><span data-lang="en">JOIN NOW</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-40 pb-32 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="text-gold font-bold text-sm tracking-[0.3em] uppercase mb-6 block">
+                <span data-lang="cn">中东设计师 · 品牌合作 · 实体落地</span><span data-lang="en">Middle East Designers · Brand Partnership · Offline Execution</span>
+            </span>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8 section-title leading-[1.1]">
+                <span data-lang="cn">招募面向中东的下一代设计力量。</span>
+                <span data-lang="en">Recruiting the Next Generation of ME Designers.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-500 font-light max-w-2xl mx-auto mb-14 leading-relaxed text-balance">
+                <span data-lang="cn">我们面向居住在海湾及中东地区的室内设计师开放招募，通过线上流量与线下建材城，为你提供从“获客”“选材”到“签约”的一站式支持。</span>
+                <span data-lang="en">We are recruiting interior designers across the Middle East and GCC, offering an end-to-end journey from leads and materials to client sign-off.</span>
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                <a href="#join" class="btn-black px-10 py-4 text-sm font-bold shadow-2xl hover:scale-105 transition">
+                    <span data-lang="cn">立即申请成为设计师</span><span data-lang="en">Apply as Designer</span>
+                </a>
+                <a href="https://www.tarmeer.com" target="_blank" class="text-gold font-bold flex items-center gap-2 hover:gap-4 transition-all">
+                    <span data-lang="cn">访问官网 WWW.TARMEER.COM</span><span data-lang="en">Visit WWW.TARMEER.COM</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Hero 视觉配图 -->
+        <div class="mt-24 max-w-6xl mx-auto arch-container h-[600px] overflow-hidden bg-gray-100 shadow-2xl border-8 border-white relative">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2070&auto=format&fit=crop" 
+                 alt="" 
+                 class="w-full h-full object-cover image-zoom">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="absolute bottom-12 left-12 text-left text-white drop-shadow-lg">
+                <p class="text-xs font-bold uppercase tracking-widest opacity-80 mb-2">Dubai Signature Living</p>
+                <h3 class="text-4xl font-bold section-title">Downtown Penthouse Project</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Ecosystem: Online + Offline -->
+    <section id="about" class="py-32 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            
+            <!-- Online Engine -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center mb-32">
+                <div class="order-2 md:order-1">
+                    <span class="text-gold font-bold text-xs uppercase tracking-[0.3em] mb-4 block">The Online Growth Engine</span>
+                    <h2 class="text-4xl font-bold mb-8 section-title text-balance">
+                        <span data-lang="cn">Tarmeer.com 阿联酋新媒体流量全覆盖</span>
+                        <span data-lang="en">Tarmeer.com Full Social Media Coverage in UAE</span>
+                    </h2>
+                    <p class="text-gray-500 text-lg leading-relaxed mb-8 text-balance">
+                        <span data-lang="cn">通过我们的互联网平台，设计师可以实时获取来自 TikTok 和 Facebook 的精准装修咨询。专业客服筛选线索，并为您分配适合您的设计线索，让你能接到真实订单。</span>
+                        <span data-lang="en">Gain real-time leads from TikTok/FB via our platform. Our professional service filters and assigns the most suitable leads to you, ensuring genuine project orders.</span>
+                    </p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-2xl text-black">3,000,000+</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">
+                                <span data-lang="cn">每月视频播放量</span><span data-lang="en">Monthly Video Views</span>
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-2xl text-black">3,000+</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">
+                                <span data-lang="cn">月均精准线索</span><span data-lang="en">Precise Monthly Leads</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 arch-container h-[600px] overflow-hidden bg-gray-50 shadow-2xl relative">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2026&auto=format&fit=crop" 
+                         alt="" 
+                         class="w-full h-full object-cover image-zoom">
+                    <div class="absolute inset-0 bg-black/10"></div>
+                    <div class="absolute bottom-12 right-12 text-right text-white drop-shadow-lg">
+                        <p class="text-xs font-bold uppercase tracking-widest opacity-80 mb-2">Digital Dashboard</p>
+                        <h3 class="text-4xl font-bold section-title">Traffic & Leads Control</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offline Power -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+                <div class="arch-container h-[600px] overflow-hidden bg-gray-100 shadow-2xl relative">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2070&auto=format&fit=crop" 
+                         alt="" 
+                         class="w-full h-full object-cover image-zoom">
+                    <div class="absolute inset-0 bg-black/10"></div>
+                </div>
+                <div>
+                    <span class="text-gold font-bold text-xs uppercase tracking-[0.3em] mb-4 block">The Physical Foundation</span>
+                    <h2 class="text-4xl font-bold mb-8 section-title">
+                        <span data-lang="cn">实体建材城：设计师的“线下堡垒”</span>
+                        <span data-lang="en">Materials Mall: Your Offline Fortress</span>
+                    </h2>
+                    <p class="text-gray-500 text-lg leading-relaxed mb-8 text-balance">
+                        <span data-lang="cn">在迪拜核心区，Tarmeer 拥有一座数万平米的现代化建材商城。这里不仅是中国顶尖供应链的集散地，更是您的专属洽谈中心。带客户来这里，看样、比价、签单，让信任触手可及。</span>
+                        <span data-lang="en">Tarmeer owns a massive modern Building Materials Mall in Dubai. It's not just a hub for top Chinese supplies, but your exclusive negotiation center. Let clients touch, feel, and close deals in a professional environment.</span>
+                    </p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-2xl text-black">500+</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">
+                                <span data-lang="cn">入驻品牌</span><span data-lang="en">Brands In-store</span>
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-2xl text-black">100%</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">
+                                <span data-lang="cn">工厂直供</span><span data-lang="en">Factory Direct</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Partnership Models -->
+    <section id="models" class="py-32 bg-sand">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-24">
+                <span class="text-gold font-black text-xs uppercase tracking-[0.4em] mb-4 block">Partnership 2026</span>
+                <h2 class="text-4xl font-bold tracking-tight mb-4 section-title">
+                    <span data-lang="cn">设计师合伙方案</span><span data-lang="en">Partnership Tiers</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- 注册设计师 -->
+                <div class="bg-white rounded-[32px] p-10 flex flex-col justify-between shadow-sm border border-gold/5 apple-card">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1 section-title">
+                            <span data-lang="cn">注册设计师</span><span data-lang="en">Registered Designer</span>
+                        </h3>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-6 font-bold">Entry Level</p>
+                        <div class="text-4xl font-bold mb-8">
+                            <span data-lang="cn">免费</span><span data-lang="en">FREE</span>
+                        </div>
+                        <ul class="space-y-4 mb-12">
+                            <li class="flex items-center gap-3 text-sm text-gray-500">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span><span data-lang="cn">设计师数字化作品主页展示</span><span data-lang="en">Digital Portfolio Profile</span></span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-500">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span><span data-lang="cn">建材城全品类供应链接入</span><span data-lang="en">Full Supply Chain Access</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-8 border-t border-gray-50">
+                        <p class="text-lg font-bold"><span data-lang="cn">建材返佣 5%-10%</span><span data-lang="en">5%-10% Materials Comm.</span></p>
+                    </div>
+                </div>
+
+                <!-- 认证设计师 -->
+                <div class="bg-white rounded-[32px] p-12 flex flex-col justify-between shadow-2xl scale-105 border-t-8 border-gold relative apple-card">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">Growth Tier</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1 section-title">
+                            <span data-lang="cn">认证设计师</span><span data-lang="en">Certified Designer</span>
+                        </h3>
+                        <p class="text-[10px] text-gold uppercase tracking-widest mb-6 font-bold">Professional</p>
+                        <div class="text-4xl font-bold mb-8">5,000 <span class="text-xs text-gray-400 font-normal uppercase">Aed / Year</span></div>
+                        <ul class="space-y-5 mb-12">
+                            <li class="flex items-center gap-3 text-sm font-bold text-balance">
+                                <i class="fa-solid fa-star text-gold"></i>
+                                <span><span data-lang="cn">每月保底 3 个客户咨询 (上不封顶)</span><span data-lang="en">Guaranteed 3 Leads/Mo</span></span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm font-bold text-balance">
+                                <i class="fa-solid fa-star text-gold"></i>
+                                <span><span data-lang="cn">Tiktok 拍摄 3 条深度专访</span><span data-lang="en">3x TikTok Personal Features</span></span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-balance">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span><span data-lang="cn">线下商城谈单空间支持</span><span data-lang="en">Mall Meeting Room Access</span></span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-balance">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span><span data-lang="cn">官网个人主页展示</span><span data-lang="en">Web Portfolio Display</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-8 border-t border-gray-50">
+                        <p class="text-lg font-bold text-gold text-balance"><span data-lang="cn">建材成交返佣 10%-15%</span><span data-lang="en">10%-15% Materials Comm.</span></p>
+                    </div>
+                </div>
+
+                <!-- 签约设计师 -->
+                <div class="bg-white rounded-[32px] p-10 flex flex-col justify-between shadow-sm border border-gold/5 apple-card">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1 section-title">
+                            <span data-lang="cn">签约设计师</span><span data-lang="en">Contracted Designer</span>
+                        </h3>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-6 font-bold">Elite Strategic</p>
+                        <div class="text-4xl font-bold mb-8">15,000 <span class="text-xs text-gray-400 font-normal uppercase">Aed / Year</span></div>
+                        <ul class="space-y-4 mb-12">
+                            <li class="flex items-center gap-3 text-sm font-bold text-balance">
+                                <i class="fa-solid fa-crown text-gold"></i>
+                                <span><span data-lang="cn">每月保底 10 条线索 (上不封顶)</span><span data-lang="en">Guaranteed 10 Leads/Mo</span></span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm font-bold text-gold text-balance">
+                                <i class="fa-solid fa-crown text-gold"></i>
+                                <span><span data-lang="cn">独立运营 Tiktok 号 1 个</span><span data-lang="en">1 Dedicated TikTok Operation</span></span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-balance">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span><span data-lang="cn">专业 3D 设计软件深度授权</span><span data-lang="en">3D Design Software License</span></span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-balance">
+                                <i class="fa-solid fa-circle-check text-gold"></i>
+                                <span><span data-lang="cn">商城线下宣传与驻点支持</span><span data-lang="en">Mall Promo & Office Hub</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-8 border-t border-gray-50">
+                        <p class="text-lg font-bold"><span data-lang="cn">建材成交返佣最高 15%</span><span data-lang="en">Up to 15% Materials Comm.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who & How Section -->
+    <section class="py-32 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <!-- 适合哪些设计师 -->
+                <div>
+                    <span class="text-gold font-black text-xs uppercase tracking-[0.4em] mb-4 block">Who We Are Looking For</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 section-title">
+                        <span data-lang="cn">我们重点招募这样的你</span>
+                        <span data-lang="en">Designers That Fit Our DNA</span>
+                    </h2>
+                    <ul class="space-y-4 text-gray-600 text-sm md:text-base">
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-circle-check text-gold mt-1"></i>
+                            <p>
+                                <span data-lang="cn">常驻海湾或中东主要城市（如迪拜、阿布扎比、利雅得、多哈等），有稳定本地生活基础。</span>
+                                <span data-lang="en">Based in major ME/GCC cities (Dubai, Abu Dhabi, Riyadh, Doha, etc.) with stable local presence.</span>
+                            </p>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-circle-check text-gold mt-1"></i>
+                            <p>
+                                <span data-lang="cn">至少 2 年以上室内设计、软装或整案经验，有完整落地项目案例。</span>
+                                <span data-lang="en">2+ years experience in interior / fit-out with completed projects.</span>
+                            </p>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-circle-check text-gold mt-1"></i>
+                            <p>
+                                <span data-lang="cn">愿意与平台一起打造个人 IP，乐于在镜头前分享设计理念与生活方式。</span>
+                                <span data-lang="en">Open to building personal IP with us and appearing in content.</span>
+                            </p>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-circle-check text-gold mt-1"></i>
+                            <p>
+                                <span data-lang="cn">认可长期主义，重视客户口碑与项目质量，希望拥有更强的获客与供应链能力。</span>
+                                <span data-lang="en">Value long-term reputation, quality delivery, and stronger lead & supply capabilities.</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 招募流程 -->
+                <div>
+                    <span class="text-gold font-black text-xs uppercase tracking-[0.4em] mb-4 block">Application Journey</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 section-title">
+                        <span data-lang="cn">4 步完成加入</span>
+                        <span data-lang="en">Join in 4 Simple Steps</span>
+                    </h2>
+                    <ol class="space-y-5 text-sm md:text-base text-gray-600">
+                        <li class="flex gap-4">
+                            <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold mt-1">1</div>
+                            <div>
+                                <p class="font-semibold">
+                                    <span data-lang="cn">提交基础信息</span>
+                                    <span data-lang="en">Share Basic Info</span>
+                                </p>
+                                <p class="mt-1 text-gray-500">
+                                    <span data-lang="cn">通过下方 WhatsApp 或邮箱，将你的城市、从业年限、代表项目发送给我们团队。</span>
+                                    <span data-lang="en">Send your city, years of experience, and key projects via WhatsApp or email below.</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold mt-1">2</div>
+                            <div>
+                                <p class="font-semibold">
+                                    <span data-lang="cn">线上初步沟通</span>
+                                    <span data-lang="en">Online Screening Call</span>
+                                </p>
+                                <p class="mt-1 text-gray-500">
+                                    <span data-lang="cn">运营团队将与你进行一次视频/语音沟通，了解你的风格定位与项目能力。</span>
+                                    <span data-lang="en">Our team will have a short call to understand your style and project capability.</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold mt-1">3</div>
+                            <div>
+                                <p class="font-semibold">
+                                    <span data-lang="cn">确认合伙级别</span>
+                                    <span data-lang="en">Confirm Partnership Tier</span>
+                                </p>
+                                <p class="mt-1 text-gray-500">
+                                    <span data-lang="cn">基于你的城市、项目体量与内容意愿，共同选择合适的“注册 / 认证 / 签约设计师”级别。</span>
+                                    <span data-lang="en">Together we decide the right tier: Registered, Certified, or Contracted Designer.</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold mt-1">4</div>
+                            <div>
+                                <p class="font-semibold">
+                                    <span data-lang="cn">上线个人主页 & 开始接单</span>
+                                    <span data-lang="en">Launch Profile & Start Projects</span>
+                                </p>
+                                <p class="mt-1 text-gray-500">
+                                    <span data-lang="cn">完成签约后，我们将同步开通你的官网页面、内容排期与线索分发。</span>
+                                    <span data-lang="en">After signing, we launch your profile, content plan, and lead distribution.</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join CTA Section -->
+    <section id="join" class="py-32 px-6 bg-white text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl font-bold mb-8 section-title">
+                <span data-lang="cn">现在就向我们发一条消息</span><span data-lang="en">Send Us Your Application Now</span>
+            </h2>
+            <p class="text-gray-500 text-xl mb-12">
+                <span data-lang="cn">请准备好以下信息，通过 WhatsApp 或邮箱发送，我们将在 3 个工作日内回复你：</span>
+                <span data-lang="en">Prepare the info below and send via WhatsApp or email; we reply within 3 working days:</span>
+            </p>
+            <ul class="text-left text-gray-600 text-sm md:text-base space-y-2 mb-10 max-w-xl mx-auto">
+                <li>1. <span data-lang="cn">所在城市 + 常用语言</span><span data-lang="en">City + Languages you speak</span></li>
+                <li>2. <span data-lang="cn">从业年限 + 擅长项目类型（住宅 / 公寓 / 别墅 / 商业等）</span><span data-lang="en">Experience years + project types</span></li>
+                <li>3. <span data-lang="cn">3–5 个代表项目简介（如有图片链接更好）</span><span data-lang="en">3–5 highlight projects (links if any)</span></li>
+                <li>4. <span data-lang="cn">是否愿意参与短视频或内容拍摄</span><span data-lang="en">Willingness to join content / video shooting</span></li>
+            </ul>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="https://wa.me/yournumber" class="btn-gold px-12 py-4 text-lg font-bold shadow-xl hover:scale-105 transition flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="mailto:info@tarmeer.com" class="btn-black px-12 py-4 text-lg font-bold shadow-xl hover:scale-105 transition flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-envelope"></i> Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 border-t border-black/[0.03] bg-sand">
+        <div class="max-w-6xl mx-auto px-6 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-16">
+                <div class="max-w-xs mx-auto md:mx-0">
+                    <span class="text-2xl font-bold tracking-tighter mb-6 block uppercase text-black">Tarmeer Design.</span>
+                    <p class="text-sm text-gray-400 leading-relaxed text-balance">
+                        <span data-lang="cn">中东数字化装修的领导者。线上平台 www.tarmeer.com 与线下建材城双驱并行，赋能本地设计力量。</span>
+                        <span data-lang="en">Leader of ME digital renovation. Driven by Tarmeer.com and our physical Materials Mall.</span>
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-24 mx-auto md:mx-0">
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-black mb-8">Platform</h4>
+                        <ul class="space-y-4 text-xs font-medium text-gray-500">
+                            <li>WWW.TARMEER.COM</li>
+                            <li><span data-lang="cn">线下建材城</span><span data-lang="en">Materials Mall</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-black mb-8">Connect</h4>
+                        <ul class="space-y-4 text-xs font-medium text-gray-500">
+                            <li>TikTok @TarmeerDesign</li>
+                            <li>WhatsApp Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-24 pt-8 border-t border-black/[0.03]">
+                <p class="text-[10px] text-gray-400 uppercase tracking-widest text-center md:text-left text-balance">
+                    © 2026 Tarmeer Design Technology. Licensed in Dubai, UAE.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentLang = 'cn';
+        function toggleLanguage() {
+            const body = document.body;
+            const btnText = document.getElementById('langBtnText');
+            if (currentLang === 'cn') {
+                body.classList.replace('lang-active-cn', 'lang-active-en');
+                btnText.innerText = 'CN';
+                currentLang = 'en';
+            } else {
+                body.classList.replace('lang-active-en', 'lang-active-cn');
+                btnText.innerText = 'EN';
+                currentLang = 'cn';
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-12');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.apple-card').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-12', 'transition-all', 'duration-1000');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

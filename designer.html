@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarmeer Design | 设计师个人主页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --apple-bg: #ffffff;
+            --apple-secondary: #fafaf9;
+            --apple-text: #1d1d1f;
+            --tarmeer-gold: #C5A059;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--apple-bg);
+            color: var(--apple-text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        .section-title { font-family: 'Noto Serif SC', serif; }
+        .text-gold { color: var(--tarmeer-gold); }
+
+        .hero-bg {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .avatar-profile {
+            box-shadow: 0 0 0 6px rgba(255,255,255,0.9), 0 0 0 10px rgba(197, 160, 89, 0.25);
+        }
+
+        .case-card {
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .case-card:hover {
+            transform: scale(1.02);
+        }
+        .case-card img {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .case-card:hover img {
+            transform: scale(1.08);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        [data-lang="en"] { display: none; }
+        .lang-active-en [data-lang="en"] { display: block; }
+        .lang-active-en [data-lang="cn"] { display: none; }
+        .lang-active-cn [data-lang="cn"] { display: block; }
+        .lang-active-cn [data-lang="en"] { display: none; }
+    </style>
+</head>
+<body class="lang-active-cn">
+
+    <nav class="glass-nav fixed top-0 w-full z-50 border-b border-black/[0.06]">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold tracking-tighter text-black uppercase">Tarmeer <span class="text-gold">Design</span></a>
+            <div class="flex items-center gap-6 text-[11px] font-bold text-gray-500 uppercase tracking-[0.2em]">
+                <a href="designers.html" class="hover:text-gold transition">
+                    <span data-lang="cn">返回设计师名册</span><span data-lang="en">BACK TO ROSTER</span>
+                </a>
+                <button type="button" onclick="toggleLanguage()" class="w-10 h-10 rounded-full border border-gold/30 text-gold hover:bg-gold hover:text-white transition flex items-center justify-center text-[10px] font-black">
+                    <span id="langBtnText">EN</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero: 背景图 + 头像 + 姓名/头衔 -->
+    <header class="relative min-h-[85vh] flex items-end justify-center pb-20 pt-24" id="hero">
+        <div class="absolute inset-0 hero-bg" id="hero-bg"></div>
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative z-10 text-center text-white max-w-3xl mx-auto px-6">
+            <img id="designer-avatar" src="" alt="" class="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover avatar-profile mx-auto mb-6 border-4 border-white/20">
+            <h1 class="text-4xl md:text-5xl font-bold section-title mb-2" id="designer-name"></h1>
+            <p class="text-sm md:text-base uppercase tracking-[0.25em] text-white/90 mb-2" id="designer-tier"></p>
+            <p class="text-sm text-white/80 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-location-dot text-gold"></i>
+                <span id="designer-city"></span>
+            </p>
+        </div>
+    </header>
+
+    <!-- 关于 / About -->
+    <section class="py-16 md:py-24 px-6 bg-white">
+        <div class="max-w-3xl mx-auto text-center">
+            <span class="text-gold font-bold text-xs uppercase tracking-[0.4em] mb-4 block">
+                <span data-lang="cn">关于设计师</span><span data-lang="en">About</span>
+            </span>
+            <p class="text-lg md:text-xl text-gray-600 leading-relaxed" id="designer-bio"></p>
+        </div>
+    </section>
+
+    <!-- 设计案例库 / Portfolio -->
+    <section class="py-16 md:py-24 px-6 bg-[#fafaf9]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-gold font-bold text-xs uppercase tracking-[0.4em] mb-4 block">
+                    <span data-lang="cn">设计案例库</span><span data-lang="en">Portfolio</span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold section-title text-black">
+                    <span data-lang="cn">代表项目</span><span data-lang="en">Selected Projects</span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="case-gallery"></div>
+        </div>
+    </section>
+
+    <footer class="py-10 border-t border-black/[0.06] bg-white">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-[10px] text-gray-400 uppercase tracking-[0.25em]">© 2026 Tarmeer Design · Dubai, UAE.</p>
+            <a href="designers.html" class="text-[10px] text-gold font-bold uppercase tracking-[0.2em] hover:underline">
+                <span data-lang="cn">查看全部设计师</span><span data-lang="en">View All Designers</span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const designers = {
+            leen: {
+                nameCn: 'Leen Al Hassan',
+                nameEn: 'Leen Al Hassan',
+                avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop',
+                bgImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2070&auto=format&fit=crop',
+                tierCn: '认证设计师 · 迪拜',
+                tierEn: 'Certified Designer · Dubai',
+                city: 'Dubai Marina · Downtown',
+                bioCn: '专注高端公寓与年轻家庭住宅设计，擅长将中东传统纹样与极简家居结合，打造具有光感与层次感的城市生活空间。与 Tarmeer 合作后，通过平台线索与线下建材城选材，已落地多个 Marina 与 Downtown 项目。',
+                bioEn: 'Specializes in high-end apartments and young family homes, blending regional patterns with minimal interiors for light-filled urban spaces. Partnering with Tarmeer for leads and materials, she has delivered multiple projects in Marina and Downtown.',
+                cases: [
+                    { titleCn: 'Marina Skyline Loft', titleEn: 'Marina Skyline Loft', image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: 'Downtown 两居室全案', titleEn: 'Downtown 2BR Full Renovation', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: 'JBR 海景公寓', titleEn: 'JBR Sea-View Apartment', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: 'Business Bay 现代简约', titleEn: 'Business Bay Modern Minimal', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: 'DIFC 轻奢软装', titleEn: 'DIFC Soft Furnishing', image: 'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: 'Palm 别墅客厅', titleEn: 'Palm Villa Living', image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6e3?q=80&w=800&auto=format&fit=crop' }
+                ]
+            },
+            chen: {
+                nameCn: 'Chen Yuhan',
+                nameEn: 'Chen Yuhan',
+                avatar: 'https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?q=80&w=800&auto=format&fit=crop',
+                bgImage: 'https://images.unsplash.com/photo-1600585154526-990dac4b53fe?q=80&w=2070&auto=format&fit=crop',
+                tierCn: '签约设计师 · 阿布扎比',
+                tierEn: 'Contracted Designer · Abu Dhabi',
+                city: 'Saadiyat Island · Yas',
+                bioCn: '拥有多年的酒店与高端别墅项目经验，擅长用克制的线条与大面积石材，呈现兼具仪式感与居住舒适度的空间。与 Tarmeer 签约后，依托独立 TikTok 运营与建材城驻点，服务阿布扎比及周边高端客户。',
+                bioEn: 'Experienced in hospitality and luxury villas, known for calm lines and stone textures that balance ceremony with everyday comfort. As a Contracted Designer with Tarmeer, he serves high-end clients in Abu Dhabi via dedicated TikTok and mall presence.',
+                cases: [
+                    { titleCn: 'Saadiyat Art Villa', titleEn: 'Saadiyat Art Villa', image: 'https://images.unsplash.com/photo-1600585154526-990dac4b53fe?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: 'Yas 岛度假别墅', titleEn: 'Yas Island Resort Villa', image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: 'Al Reem 顶层复式', titleEn: 'Al Reem Penthouse', image: 'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: '精品酒店大堂', titleEn: 'Boutique Hotel Lobby', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: '私人会所室内', titleEn: 'Private Club Interior', image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: '海滨别墅主卧', titleEn: 'Beach Villa Master Suite', image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=800&auto=format&fit=crop' }
+                ]
+            },
+            omar: {
+                nameCn: 'Omar Al Ghali',
+                nameEn: 'Omar Al Ghali',
+                avatar: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=800&auto=format&fit=crop',
+                bgImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070&auto=format&fit=crop',
+                tierCn: '注册设计师 · 利雅得',
+                tierEn: 'Registered Designer · Riyadh',
+                city: 'Riyadh Central',
+                bioCn: '从商业视觉出发做空间，擅长咖啡馆与小型零售空间设计，为品牌在社交媒体创造高记忆度场景。加入 Tarmeer 后，通过平台线索与建材城供应链，在利雅得落地多个网红店与快闪空间。',
+                bioEn: 'Approaches space from a branding angle, designing cafes and compact retail that photograph beautifully for social media. With Tarmeer leads and supply chain, he has delivered several viral-worthy spaces in Riyadh.',
+                cases: [
+                    { titleCn: 'Sandline Coffee Lab', titleEn: 'Sandline Coffee Lab', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: '利雅得概念咖啡馆', titleEn: 'Riyadh Concept Café', image: 'https://images.unsplash.com/photo-1554118811-1e0d58224efd?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: '快闪零售空间', titleEn: 'Pop-up Retail', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: '书店兼咖啡', titleEn: 'Bookstore Café', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: '工作室展厅', titleEn: 'Studio Showroom', image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=800&auto=format&fit=crop' },
+                    { titleCn: '街头小店立面', titleEn: 'Street Store Front', image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=800&auto=format&fit=crop' }
+                ]
+            }
+        };
+
+        function getDesignerId() {
+            const params = new URLSearchParams(window.location.search);
+            const id = (params.get('id') || 'leen').toLowerCase();
+            return designers[id] ? id : 'leen';
+        }
+
+        function isEn() {
+            return document.body.classList.contains('lang-active-en');
+        }
+
+        function renderDesigner(id) {
+            const d = designers[id];
+            if (!d) return;
+
+            document.getElementById('hero-bg').style.backgroundImage = `url(${d.bgImage})`;
+            document.getElementById('designer-avatar').src = d.avatar;
+            document.getElementById('designer-avatar').alt = d.nameEn;
+            document.getElementById('designer-name').textContent = isEn() ? d.nameEn : d.nameCn;
+            document.getElementById('designer-tier').textContent = isEn() ? d.tierEn : d.tierCn;
+            document.getElementById('designer-city').textContent = d.city;
+            document.getElementById('designer-bio').textContent = isEn() ? d.bioEn : d.bioCn;
+
+            const gallery = document.getElementById('case-gallery');
+            gallery.innerHTML = d.cases.map(c => `
+                <article class="case-card bg-white rounded-2xl overflow-hidden shadow-sm border border-black/[0.04]">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="${c.image}" alt="${isEn() ? c.titleEn : c.titleCn}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-semibold text-black">${isEn() ? c.titleEn : c.titleCn}</h3>
+                    </div>
+                </article>
+            `).join('');
+
+            document.title = `Tarmeer Design | ${d.nameEn}`;
+        }
+
+        let currentLang = 'cn';
+        function toggleLanguage() {
+            const body = document.body;
+            const btn = document.getElementById('langBtnText');
+            if (currentLang === 'cn') {
+                body.classList.replace('lang-active-cn', 'lang-active-en');
+                btn.textContent = 'CN';
+                currentLang = 'en';
+            } else {
+                body.classList.replace('lang-active-en', 'lang-active-cn');
+                btn.textContent = 'EN';
+                currentLang = 'cn';
+            }
+            renderDesigner(getDesignerId());
+        }
+
+        const designerId = getDesignerId();
+        renderDesigner(designerId);
+    </script>
+</body>
+</html>
