@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarmeer Design | 业务单元 · 八大品牌</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --apple-bg: #ffffff;
+            --apple-secondary: #fafaf9;
+            --apple-text: #1d1d1f;
+            --tarmeer-gold: #C5A059;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--apple-bg);
+            color: var(--apple-text);
+            -webkit-font-smoothing: antialiased;
+        }
+        .pattern-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l15 30-15 30-15-30z' fill='%23C5A059' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+        .section-title { font-family: 'Noto Serif SC', serif; }
+        .text-gold { color: var(--tarmeer-gold); }
+        .bg-gold { background-color: var(--tarmeer-gold); }
+        .bg-gold\/5 { background-color: rgba(197, 160, 89, 0.08); }
+        .bg-sand { background-color: var(--apple-secondary); }
+        .apple-card {
+            background: var(--apple-secondary);
+            border-radius: 28px;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(197, 160, 89, 0.14);
+        }
+        .apple-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.12);
+            border-color: var(--tarmeer-gold);
+        }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="pattern-overlay">
+
+    <nav class="glass-nav fixed top-0 w-full z-50 border-b border-black/[0.03]">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-bold tracking-tighter text-black uppercase">Tarmeer <span class="text-gold">Design</span></a>
+            <div class="hidden md:flex gap-8 text-[11px] font-bold text-gray-500 uppercase tracking-[0.2em]">
+                <a href="index.html" class="hover:text-gold transition">首页</a>
+                <a href="BusinessUnit.html" class="text-gold">业务单元</a>
+                <a href="designers.html" class="hover:text-gold transition">已入驻设计师</a>
+            </div>
+            <div class="flex items-center gap-4 md:hidden">
+                <a href="BusinessUnit.html" class="text-[11px] font-bold text-gold uppercase">业务单元</a>
+                <a href="designers.html" class="text-[11px] font-bold text-gray-500 uppercase hover:text-gold">设计师</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 md:pt-40 pb-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="text-gold font-bold text-sm tracking-[0.3em] uppercase mb-6 block">Business Units</span>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-8 section-title leading-[1.15]">
+                <span class="text-gold">八大品牌</span> · 四大供应链阵营
+            </h1>
+            <p class="text-xl text-gray-500 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+                定制硬装、成品主材、软装家居、景观美陈，支撑自营全案整装交付。
+            </p>
+            <a href="index.html#strategy" class="inline-flex items-center justify-center px-10 py-4 rounded-full bg-black text-white text-sm font-bold hover:scale-105 transition shadow-xl">
+                查看战略全景 <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+            </a>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-28 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-gold font-bold text-xs uppercase tracking-[0.4em] mb-4 block">Four Pillars</span>
+                <h2 class="text-3xl md:text-4xl font-bold section-title text-black">四大业务单元</h2>
+                <p class="text-gray-500 mt-3 max-w-xl mx-auto">对应战略架构中的供应链心脏，与自营设计协同作战。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="apple-card p-8 flex flex-col">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center text-white text-xl">
+                            <i class="fa-solid fa-ruler-combined"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black">定制硬装组</h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest">非标 · 高客单</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 mb-6 flex-1">EAFA 门窗、索菲亚定制、德尚木门等，强安装依赖，由厂家技术专家与商务双人制攻单。</p>
+                    <a href="index.html#matrix" class="text-gold font-bold text-sm uppercase tracking-widest inline-flex items-center gap-2 hover:gap-3 transition-all">
+                        战略中的位置 <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="apple-card p-8 flex flex-col">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 rounded-full bg-cyan-600 flex items-center justify-center text-white text-xl">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black">成品主材组</h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest">标准化 · 套餐化</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 mb-6 flex-1">恒洁卫浴、泰沃灯饰、明轩新材等，由全案设计师在方案内定品，展厅助手配合展示。</p>
+                    <a href="index.html#matrix" class="text-gold font-bold text-sm uppercase tracking-widest inline-flex items-center gap-2 hover:gap-3 transition-all">
+                        战略中的位置 <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="apple-card p-8 flex flex-col">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 rounded-full bg-orange-500 flex items-center justify-center text-white text-xl">
+                            <i class="fa-solid fa-couch"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black">软装家居组</h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest">视觉 · 体验</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 mb-6 flex-1">华盛家居等，美学顾问负责整体搭配与软装方案，渠道经理赋能外部设计师。</p>
+                    <a href="index.html#matrix" class="text-gold font-bold text-sm uppercase tracking-widest inline-flex items-center gap-2 hover:gap-3 transition-all">
+                        战略中的位置 <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="apple-card p-8 flex flex-col">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 rounded-full bg-green-600 flex items-center justify-center text-white text-xl">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-black">景观美陈组</h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest">溢价 · 引流</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 mb-6 flex-1">春蕾绿植等，项目制交付，作为商业引流与空间溢价工具。</p>
+                    <a href="index.html#matrix" class="text-gold font-bold text-sm uppercase tracking-widest inline-flex items-center gap-2 hover:gap-3 transition-all">
+                        战略中的位置 <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="index.html#team" class="inline-flex items-center justify-center px-8 py-3 rounded-full border-2 border-gold text-gold text-sm font-bold hover:bg-gold hover:text-white transition">
+                    查看组织架构 <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 md:py-24 border-t border-black/[0.06] bg-sand">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+                <div class="max-w-xs">
+                    <span class="text-2xl font-bold tracking-tighter mb-4 block uppercase text-black">Tarmeer <span class="text-gold">Design</span></span>
+                    <p class="text-sm text-gray-500 leading-relaxed">业务单元 · 八大品牌四大阵营，支撑整装集成战略。</p>
+                </div>
+                <div class="flex flex-wrap gap-12 md:gap-16">
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-black mb-4">导航</h4>
+                        <ul class="space-y-3 text-sm text-gray-500">
+                            <li><a href="index.html" class="hover:text-gold transition">首页</a></li>
+                            <li><a href="BusinessUnit.html" class="text-gold font-bold">业务单元</a></li>
+                            <li><a href="designers.html" class="hover:text-gold transition">已入驻设计师</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-black mb-4">站点</h4>
+                        <ul class="space-y-3 text-sm text-gray-500">
+                            <li><a href="index.html" class="hover:text-gold transition">首页 / 战略</a></li>
+                            <li><a href="BusinessUnit.html" class="hover:text-gold transition">业务单元</a></li>
+                            <li><a href="designers.html" class="hover:text-gold transition">设计师名册</a></li>
+                            <li><a href="https://www.tarmeer.com" target="_blank" rel="noopener" class="hover:text-gold transition">WWW.TARMEER.COM</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-black/[0.06]">
+                <p class="text-[10px] text-gray-400 uppercase tracking-widest text-center md:text-left">© 2026 Tarmeer Design Technology · Dubai, UAE.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
